@@ -62,7 +62,7 @@ docker run --name predicciones model_ia
 > - *Docker Desktop* debe estar en ejecución antes de realizar cualquier comando relacionado con Docker.
 
 
-#### **Scripts** 
+### 📄 **Scripts** 
 
 - `apirest.py:` Define una API REST utilizando FastAPI. Incluye dos endpoints: uno para entrenar el modelo  */train*  y otro para realizar predicciones */predict*. El modelo se carga al inicio de la aplicación y se cierra al finalizar.
 - `client.py:` Es un cliente para probar la API REST que anteriormente se creo. Genera datos de prueba aleatorios y realiza solicitudes POST a los endpoints */predict* y */train* de la API. Los resultados de las solicitudes se imprimen en la consola, indicando si fueron exitosas o fallidas. 
@@ -70,7 +70,7 @@ docker run --name predicciones model_ia
 - `model/models.py:` Este script define las dos clases de modelado de los datos. *PredictionData* se utiliza para validar los datos de entrada para las predicciones, mientras que *ModelPrediction* se utiliza para estructurar la respuesta de la predicción. 
 - `model/models.py:` Este script contiene una función *cleaning_data* que limpia los datos de entrada llenando los valores faltantes y eliminando los valores atípicos. 
 
-#### 🚀 **Ejecución**
+### 🚀 **Ejecución**
 
 El proyecto incluye un archivo `docker-compose.yml` que gestiona la ejecución de los servicios necesarios para probar la API REST.
 
@@ -87,4 +87,4 @@ docker-compose up --build
 - Una vez que la API está disponible, ejecuta el cliente para realizar las predicciones.
 - Al finalizar, en los logs de las llamadas a la API se veran los resultados de la predicción.
 
-![alt text](image.png)
+![alt text](public/image.png)
