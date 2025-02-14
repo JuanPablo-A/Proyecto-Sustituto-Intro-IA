@@ -74,7 +74,7 @@ docker run --name predicciones model_ia
 
 El proyecto incluye un archivo `docker-compose.yml` que gestiona la ejecución de los servicios necesarios para probar la API REST.
 
-Para construir las imágenes y ejecutar las predicciones, basta con correr el siguiente comando en la terminal:
+Para generar las imágenes y ejecutar las predicciones, simplemente ejecuta el siguiente comando en la terminal desde la raíz del proyecto:
 
 ```bash
 docker-compose up --build
