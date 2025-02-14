@@ -1,13 +1,13 @@
 # Proyecto Sustituto - Introdución a la Inteligencia Artificial
 
-## Integrantes
+## **Integrantes**
 
 - **1041410002** - Jose David Gómez Muñetón
   - Ingeniería de Sistemas
 - **1001477904** - Juan Pablo Arango Gaviria
   - Ingeniería de Sistemas
 
-## Ejecución
+## **Ejecución**
 
 ### Fase 1
 
@@ -53,3 +53,38 @@ docker run --name predicciones model_ia
     ```
 
     Esto copiará el archivo `predicts.csv` desde el contenedor a la carpeta `data` de tu proyecto local.
+
+### Fase 3
+
+> [!NOTE]
+> Para la ejecucion de esta fase se debe cumplir estos requisitos previos.
+> - Tener *Docker* y *Docker Desktop* instalados en tu máquina.
+> - *Docker Desktop* debe estar en ejecución antes de realizar cualquier comando relacionado con Docker.
+
+
+#### **Scripts** 
+
+- `apirest.py:` Define una API REST utilizando FastAPI. Incluye dos endpoints: uno para entrenar el modelo  */train*  y otro para realizar predicciones */predict*. El modelo se carga al inicio de la aplicación y se cierra al finalizar.
+- `client.py:` Es un cliente para probar la API REST que anteriormente se creo. Genera datos de prueba aleatorios y realiza solicitudes POST a los endpoints */predict* y */train* de la API. Los resultados de las solicitudes se imprimen en la consola, indicando si fueron exitosas o fallidas. 
+- `model/__init__.py:` Se define una clase Model que maneja el entrenamiento y la predicción de el modelo utilizando CatBoost. Incluye métodos para cargar, entrenar, predecir y guardar el modelo.
+- `model/models.py:` Este script define las dos clases de modelado de los datos. *PredictionData* se utiliza para validar los datos de entrada para las predicciones, mientras que *ModelPrediction* se utiliza para estructurar la respuesta de la predicción. 
+- `model/models.py:` Este script contiene una función *cleaning_data* que limpia los datos de entrada llenando los valores faltantes y eliminando los valores atípicos. 
+
+#### 🚀 **Ejecución**
+
+El proyecto incluye un archivo `docker-compose.yml` que gestiona la ejecución de los servicios necesarios para probar la API REST.
+
+Para construir las imágenes y ejecutar las predicciones, basta con correr el siguiente comando en la terminal:
+
+```bash
+docker-compose up --build
+```
+
+📌 **¿Qué hace este comando?**
+
+- Construye las imágenes de la API y el cliente.
+- Inicia la API y espera a que esté completamente lista. 
+- Una vez que la API está disponible, ejecuta el cliente para realizar las predicciones.
+- Al finalizar, en los logs de las llamadas a la API se veran los resultados de la predicción.
+
+![alt text](image.png)
