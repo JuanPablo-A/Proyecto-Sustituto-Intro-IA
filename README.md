@@ -87,4 +87,18 @@ docker-compose up --build
 - Una vez que la API está disponible, ejecuta el cliente para realizar las predicciones.
 - Al finalizar, en los logs de las llamadas a la API se veran los resultados de la predicción.
 
-![alt text](public/image.png)
+![captura logs de docker](public/image.png)
+
+En caso de que solo se quiera ejecutar uno de los contenedores de docker se pueden utilizar estos comnandos: 
+
+- Ejecución del contenedor de la API REST 
+
+```bash
+docker build -t predictions_api -f fase-3/Dockerfile .
+```
+
+```bash
+docker run -p 8000:8000 --name intro_ia_api predictions_api
+```
+
+Luego de tener los contenedores en ejecucion puedes acceder a la ruta [https://localhost:8000/docs](https://localhost:8000/docs) para interactuar con la documentación de la API y probar los endpoints.
